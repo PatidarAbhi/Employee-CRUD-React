@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#displayDiv {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+}
+
+#compDataTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#compDataTable th,
+#compDataTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#compDataTable th {
+  background-color: #f2f2f2;
+}
+
+#compDataTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#compDataTable tr:hover {
+  background-color: #ddd;
+}
+
+#compDataTable td {
+  vertical-align: top;
+}
+
+#compDataTable p {
+  margin: 0;
+}
