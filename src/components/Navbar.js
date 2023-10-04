@@ -1,6 +1,5 @@
 import { addEmpPage, employeeData } from "../slice/DisplaySlice";
 import { useDispatch } from "react-redux";
-import addEmployee from "../slice/addEmployee";
 import { Link } from "react-router-dom";
 
 const Navbar=()=>

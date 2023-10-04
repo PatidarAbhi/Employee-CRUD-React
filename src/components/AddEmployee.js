@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {addEmployee} from "../slice/addEmployee";
 import { employeeData } from "../slice/DisplaySlice";
-import EmployeeData from "./EmployeeData";
+import { addNewEmployee } from "../slice/employeeOperation";
 
 
 const AddEmployee=()=>
@@ -15,20 +14,30 @@ const AddEmployee=()=>
         }
     )
     const dispatch= useDispatch()
-    const{loading,error}=useSelector((state)=>state.employee)
     const handleSubmit=(e)=>
     {
         e.preventDefault();
         console.log("in add emp:"+employee.companyId+employee.name+employee.doj);
-        dispatch(addEmployee(
-            {
-                 companyId: employee.companyId,
-                  employeeData:{
-                    name:employee.name,
-                    doj:employee.doj
-                },
-            }
+        // dispatch(addEmployee(
+        //     {
+        //          companyId: employee.companyId,
+        //           employeeData:{
+        //             name:employee.name,
+        //             doj:employee.doj
+        //         },
+        //     }
+        // ))
+
+        dispatch(addNewEmployee(
+          {
+            companyId: employee.companyId,
+             employeeData:{
+               name:employee.name,
+               doj:employee.doj
+           },
+       }
         ))
+
         dispatch(employeeData('home'))
     }
     return(
@@ -49,7 +58,7 @@ const AddEmployee=()=>
         </div>
         <div className="mb-3">
          Enter Date of joining: <input
-            type="text"
+            type="date"
             className="form-control"
             placeholder="yyyy-MM-dd"
             value={employee.doj}
@@ -59,6 +68,7 @@ const AddEmployee=()=>
                 doj: e.target.value,
               })
             }
+            pattern="\d{4}-\d{2}-\d{2}"
           />
         </div>
          Enter companyId:<div className="mb-3">
@@ -81,7 +91,6 @@ const AddEmployee=()=>
           </button>
         </div>
       </form>
-      {error && <div className="error">{error}</div>}
     </div>
   );
 }

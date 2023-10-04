@@ -4,8 +4,7 @@ import './App.css';
 import Employee from './components/Employee';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Company from './components/Company';
-
-
+import Error from './components/Error';
 
 
 function App() {
@@ -15,7 +14,8 @@ function App() {
       <Routes>
         <Route>
           <Route path='/' element={<Company></Company>} />
-          <Route path='/employee' element={<Employee></Employee>} />
+          <Route path='/employee' element={<Employee></Employee>}/>
+          <Route path='*' element={<Error></Error>}></Route>
         </Route>
        </Routes>
       </BrowserRouter>
